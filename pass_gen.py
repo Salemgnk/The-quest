@@ -27,4 +27,4 @@ def pass_checker(input):
     if special == True and upper == True and lenght == True:
         return 1
     else:
-        return 1
+        return 0
