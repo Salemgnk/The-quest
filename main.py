@@ -22,6 +22,9 @@ def fade_out(image, screen):
         pygame.time.delay(10)
         alpha -= 5
 
+def draw_rectangle(screen):
+    pygame.draw.rect(screen, (0, 0, 255), [100, 100, 400, 100], 2)
+
 def window():
     pygame.init()
     screen = pygame.display.set_mode((1920, 1080), pygame.RESIZABLE)
