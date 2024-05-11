@@ -54,6 +54,9 @@ def buttons_choice(screen):
     pic_displayer(screen)
     draw_rectangle(screen, "Password Checker", [100, 250, 400, 100], (300, 300))
     draw_rectangle(screen, "Password Generator", [100, 600, 400, 100], (300, 650))
+    draw_rectangle(screen, "Navigator", [1400, 250, 400, 100], (1600, 300))
+    draw_rectangle(screen, "Pentest Tools", [1400, 600, 400, 100], (1600, 650))
+
 
 
 def window():
