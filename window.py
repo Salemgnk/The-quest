@@ -1,18 +1,9 @@
+from pass_gen import *
 import pygame
 import tkinter as tk
+from pass_check import *
+from displayer import *
 
-white = (255, 255, 255)
-black = (0, 0, 0)
-blue = (0, 0, 128)
-
-def displayer(screen):
-    font = pygame.font.Font(None, 36)
-    text = font.render('Welcome on Upsilon Tools. What do you want to do ?', True, white)
-    textRect = text.get_rect()
-    textRect.center = (screen.get_width() // 2, screen.get_height() - 950)
-    screen.blit(text, textRect)
-
- 
 def fade_in(image, screen):
     alpha = 0
     while alpha < 255:
@@ -50,7 +41,7 @@ def draw_rectangle(screen, input, pos, text_pos):
     screen.blit(text_surface, text_rect)
     pygame.display.update()
 
-def buttons_choice(screen):
+def buttons_display(screen):
     pic_displayer(screen)
     draw_rectangle(screen, "Password Checker", [100, 250, 400, 100], (300, 300))
     draw_rectangle(screen, "Password Generator", [100, 600, 400, 100], (300, 650))
@@ -58,6 +49,18 @@ def buttons_choice(screen):
     draw_rectangle(screen, "Pentest Tools", [1400, 600, 400, 100], (1600, 650))
 
 
+def buttons_choice(screen, mouse_pos):
+    rect_positions = [
+        {"name": "Password Checker", "pos": [100, 250, 400, 100]},
+        {"name": "Password Generator", "pos": [100, 600, 400, 100]},
+        {"name": "Navigator", "pos": [1400, 250, 400, 100]},
+        {"name": "Pentest Tools", "pos": [1400, 600, 400, 100]}
+    ]
+    for rect_data in rect_positions:
+        pos = rect_data["pos"]
+        if pygame.Rect(pos).collidepoint(mouse_pos):
+            if rect_data["name"] == "Password Checker":
+                display_screen(screen)
 
 def window():
     pygame.init()
@@ -70,15 +73,18 @@ def window():
     fade_in(icon, screen)
     pygame.time.delay(2000)
     fade_out(icon, screen)
-    buttons_choice(screen)
+    buttons_display(screen)
     display = True
+    input_text = ""
 
+    displayer(screen, 'Welcome on Upsilon Tools. What do you want to do ?')
     while display:
-        displayer(screen)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 display = False
-        displayer(screen)
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                mouse_pos = pygame.mouse.get_pos()
+                buttons_choice(screen, mouse_pos)
         pygame.display.flip()
         framerate.tick(30)
     pygame.quit()
