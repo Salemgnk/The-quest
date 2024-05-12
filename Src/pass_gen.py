@@ -1,8 +1,9 @@
 import string
 import random
 import pygame
-import pyperclip
 from displayer import *
+from password import *
+from password import *
 
 specials = "~#{([_-@]*!£$;,:/?)}"
 WHITE = (255, 255, 255)
@@ -23,12 +24,12 @@ def pass_gen(screen):
                 elif event.key == pygame.K_RETURN:
                     length = max(int(input_text), 8)
                     mdp = ''.join(random.sample(string.ascii_letters + string.digits + specials, length))
-                    pyperclip.copy(mdp)
                     font = pygame.font.Font(None, 36)
                     text = font.render(f"Password generated: {mdp}", True, white)
                     textRect = text.get_rect()
                     textRect.center = (screen.get_width() // 2, screen.get_height() - 850)
                     screen.blit(text, textRect)
+                    password(mdp)
                     pygame.display.flip()
                     pygame.time.delay(3000)
                 elif event.unicode.isdigit() and len(input_text) < 2:

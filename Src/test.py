@@ -1,6 +1,5 @@
 import pygame
 import string
-import sys
 from displayer import *
 from pass_check import *
 import os
@@ -28,14 +27,14 @@ def pass_checker(input, screen):
     lenght = False
 
     if is_valid_password(input) == True:
-        pic_displayer(screen, "SECURED.png")
+        pic_displayer(screen, "ressources/SECURED.png")
         start_time = pygame.time.get_ticks()
         while pygame.time.get_ticks() - start_time < 1000:
             pass
         screen.fill(BLACK)
         pygame.display.flip()
     else:
-        pic_displayer(screen, "weak.png")
+        pic_displayer(screen, "ressources/weak.png")
         start_time = pygame.time.get_ticks()
         while pygame.time.get_ticks() - start_time < 2000:
             pass
