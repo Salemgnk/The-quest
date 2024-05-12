@@ -3,6 +3,7 @@ import pygame
 import tkinter as tk
 from pass_check import *
 from test import *
+# display = True
 
 def fade_in(image, screen):
     alpha = 0
@@ -60,7 +61,7 @@ def window():
     screen = pygame.display.set_mode((1920, 1080), pygame.RESIZABLE)
     framerate = pygame.time.Clock()
     pygame.display.set_caption("Upsilon Solutions")
-    icon = pygame.image.load("ressources/upsilon.png").convert()
+    icon = pygame.image.load("upsilon.png").convert()
     pygame.display.set_icon(icon)
 
     fade_in(icon, screen)
