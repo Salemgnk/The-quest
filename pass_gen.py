@@ -42,5 +42,3 @@ def pass_gen(screen):
         screen.blit(text_surface, (input_rect.x + 5, input_rect.y + 5))
         pygame.display.flip()
 
-    pygame.quit()
-

@@ -65,24 +65,28 @@ def window():
     pygame.display.set_icon(icon)
 
     fade_in(icon, screen)
-    pygame.time.delay(2000)
+    pygame.time.delay(1500)
     fade_out(icon, screen)
     buttons_display(screen)
-    display = True
     displayer(screen, 'Welcome on Upsilon Tools. What do you want to do ?')
+    display = True
     while display:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 display = False
+                pygame.quit()
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
                 button = buttons_choice(screen, mouse_pos, event)
                 if button == "Password Checker":
                     check_pass(screen)
+                    pygame.display.flip()
                 elif button == "Password Generator":
                     pass_gen(screen)
-        pygame.display.flip()
+                    pygame.display.flip()
         framerate.tick(30)
     pygame.quit()
 
-window()
+
+if __name__ == "__main__":
+    window()
