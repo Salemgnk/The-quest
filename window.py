@@ -2,7 +2,8 @@ from pass_gen import *
 import pygame
 import tkinter as tk
 from pass_check import *
-from displayer import *
+from test import *
+# display = True
 
 def fade_in(image, screen):
     alpha = 0
@@ -26,12 +27,6 @@ def fade_out(image, screen):
         pygame.time.delay(10)
         alpha -= 5
 
-def pic_displayer(screen):
-    back = pygame.image.load("back.png").convert()
-    scaled_image = pygame.transform.scale(back, screen.get_size())
-    screen.blit(scaled_image, (0, 0))
-    pygame.display.update()
-
 def draw_rectangle(screen, input, pos, text_pos):
     pygame.draw.rect(screen, (0, 0, 255), pos, 2)
     font = pygame.font.Font(None, 36)
@@ -42,14 +37,14 @@ def draw_rectangle(screen, input, pos, text_pos):
     pygame.display.update()
 
 def buttons_display(screen):
-    pic_displayer(screen)
+    pic_displayer(screen, "back.png")
     draw_rectangle(screen, "Password Checker", [100, 250, 400, 100], (300, 300))
     draw_rectangle(screen, "Password Generator", [100, 600, 400, 100], (300, 650))
     draw_rectangle(screen, "Navigator", [1400, 250, 400, 100], (1600, 300))
     draw_rectangle(screen, "Pentest Tools", [1400, 600, 400, 100], (1600, 650))
 
 
-def buttons_choice(screen, mouse_pos):
+def buttons_choice(screen, mouse_pos, event):
     rect_positions = [
         {"name": "Password Checker", "pos": [100, 250, 400, 100]},
         {"name": "Password Generator", "pos": [100, 600, 400, 100]},
@@ -59,8 +54,7 @@ def buttons_choice(screen, mouse_pos):
     for rect_data in rect_positions:
         pos = rect_data["pos"]
         if pygame.Rect(pos).collidepoint(mouse_pos):
-            if rect_data["name"] == "Password Checker":
-                display_screen(screen)
+               return rect_data["name"]
 
 def window():
     pygame.init()
@@ -75,8 +69,6 @@ def window():
     fade_out(icon, screen)
     buttons_display(screen)
     display = True
-    input_text = ""
-
     displayer(screen, 'Welcome on Upsilon Tools. What do you want to do ?')
     while display:
         for event in pygame.event.get():
@@ -84,10 +76,11 @@ def window():
                 display = False
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
-                buttons_choice(screen, mouse_pos)
+                button = buttons_choice(screen, mouse_pos, event)
+                if button == "Password Checker":
+                    check_pass(screen)
         pygame.display.flip()
         framerate.tick(30)
     pygame.quit()
-
 
 window()
