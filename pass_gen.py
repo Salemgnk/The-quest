@@ -3,6 +3,7 @@ import random
 import pygame
 import pyperclip
 from displayer import *
+from password_file import *
 
 specials = "~#{([_-@]*!£$;,:/?)}"
 WHITE = (255, 255, 255)
@@ -31,6 +32,7 @@ def pass_gen(screen):
                     screen.blit(text, textRect)
                     pygame.display.flip()
                     pygame.time.delay(3000)
+                    password(mdp)
                 elif event.unicode.isdigit() and len(input_text) < 2:
                     input_text += event.unicode
 
