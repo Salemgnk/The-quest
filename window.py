@@ -79,6 +79,8 @@ def window():
                 button = buttons_choice(screen, mouse_pos, event)
                 if button == "Password Checker":
                     check_pass(screen)
+                elif button == "Password Generator":
+                    pass_gen(screen)
         pygame.display.flip()
         framerate.tick(30)
     pygame.quit()
