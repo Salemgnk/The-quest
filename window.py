@@ -3,6 +3,7 @@ import pygame
 import tkinter as tk
 from pass_check import *
 from test import *
+from pentest import *
 # display = True
 
 def fade_in(image, screen):
@@ -84,6 +85,8 @@ def window():
                 elif button == "Password Generator":
                     pass_gen(screen)
                     pygame.display.flip()
+                elif button == 'Pentest Tools':
+                    scan_ip()
         framerate.tick(30)
     pygame.quit()
 
