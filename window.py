@@ -2,6 +2,21 @@ import requests
 import hashlib
 
 def check_password(password):
+    """
+    Check if a password has been compromised according to the Have I Been Pwned API.
+
+    Parameters
+    ----------
+    password : str
+        The password to check.
+
+    Returns
+    -------
+    str
+        A message indicating whether or not the password was compromised, or
+        an error message if the API call fails.
+    """
+   
     sha1_hash = hashlib.sha1(password.encode("utf-8")).hexdigest().upper()
     prefix = sha1_hash[:5]
     suffix = sha1_hash[5:]
