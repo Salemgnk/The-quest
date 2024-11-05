@@ -1,5 +1,6 @@
 import requests
 import hashlib
+import nmap
 
 def check_password(password):
     """
@@ -34,4 +35,9 @@ def check_password(password):
         return("Error: " + str(response.status_code) + "\nCheck your internet connection")
 
 
-check_password("password")
+def control_network(target, port='1-1024'):
+    nm = nmap.PortScanner()
+    nm.scan(target, port)
+    print(nm.all_hosts())
+
+control_network("192.168.98.99")
