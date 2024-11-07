@@ -82,3 +82,26 @@ def detect_services(target):
             'version': nm[target]['tcp'][port].get('version', 'Unknown')
         }
     return services
+
+def detect_os(target):
+    """
+    Detect the operating system of a target.
+
+    Parameters
+    ----------
+    target : str
+        The target to detect the os of.
+
+    Returns
+    -------
+    list
+        A list of dictionaries with the keys 'type', 'vendor', 'osfamily',
+        'osgen', 'accuracy'. If OS detection is not available,
+        returns "OS detection not available".
+    """
+    
+    nm = nmap.PortScanner()
+    nm.scan(target, arguments='-O')
+    if 'osclass' in nm[target]:
+        return nm[target]['osclass']
+    return "OS detection not available"
