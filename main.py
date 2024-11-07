@@ -36,6 +36,19 @@ def check_password(password):
 
 
 def scan_open_ports(target):
+    """
+    Scan a target for open ports.
+
+    Parameters
+    ----------
+    target : str
+        The target to scan.
+
+    Returns
+    -------
+    list
+        A list of open ports.
+    """
     nm = nmap.PortScanner()
     nm.scan(target, "1-1024")
     open_ports = []
@@ -45,6 +58,20 @@ def scan_open_ports(target):
     return open_ports
 
 def detect_services(target):
+    """
+    Detect the services running on a target.
+
+    Parameters
+    ----------
+    target : str
+        The target to detect services on.
+
+    Returns
+    -------
+    dict
+        A dictionary where the keys are the open ports and the values are
+        dictionaries with the keys 'name', 'product', and 'version'.
+    """
     nm = nmap.PortScanner()
     nm.scan(target, '1-1024', arguments="-sV")
     services = {}
