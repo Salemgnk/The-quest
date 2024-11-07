@@ -35,9 +35,11 @@ def check_password(password):
         return("Error: " + str(response.status_code) + "\nCheck your internet connection")
 
 
-def control_network(target, port='1-1024'):
+def scan_open_ports(target):
     nm = nmap.PortScanner()
-    nm.scan(target, port)
-    print(nm.all_hosts())
-
-control_network("192.168.98.99")
+    nm.scan(target, "1-1024")
+    open_ports = []
+    for port in nm[target]['tcp']:
+        if nm[target]['tcp'][port]['state'] == 'open':
+            open_ports.append(port)
+    return open_ports
