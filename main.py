@@ -43,3 +43,15 @@ def scan_open_ports(target):
         if nm[target]['tcp'][port]['state'] == 'open':
             open_ports.append(port)
     return open_ports
+
+def detect_services(target):
+    nm = nmap.PortScanner()
+    nm.scan(target, '1-1024', arguments="-sV")
+    services = {}
+    for port in nm[target]['tcp']:
+        services[port] = {
+            'name' : nm[target]['tcp'][port]['name'],
+            'product' : nm[target]['tcp'][port].get('product', 'Unknown'),
+            'version': nm[target]['tcp'][port].get('version', 'Unknown')
+        }
+    return services
