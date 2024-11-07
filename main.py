@@ -105,3 +105,27 @@ def detect_os(target):
     if 'osclass' in nm[target]:
         return nm[target]['osclass']
     return "OS detection not available"
+
+
+def detect_vuln(target):
+    """
+    Detect the vulnerabilities of a target.
+
+    Parameters
+    ----------
+    target : str
+        The target to detect the vulnerabilities of.
+
+    Returns
+    -------
+    dict
+        A dictionary where the keys are the hosts and the values are
+        dictionaries with the keys of the vulnerability names and the
+        values are the nmap output.
+    """
+    nm = nmap.PortScanner()
+    nm.scan(target, arguments='--script vuln')
+    vulnerabilities = {}
+    for host in nm.all_hosts():
+        vulnerabilities[host] = nm[host].get('script', {})
+    return vulnerabilities
