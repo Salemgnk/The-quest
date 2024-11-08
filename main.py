@@ -129,3 +129,6 @@ def detect_vuln(target):
     for host in nm.all_hosts():
         vulnerabilities[host] = nm[host].get('script', {})
     return vulnerabilities
+
+def main():
+    print("Welcome to")

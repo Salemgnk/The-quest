@@ -4,17 +4,14 @@
 This project is a password generator and validator that integrates cybersecurity concepts. It aims to help users create secure passwords while educating them on the importance of password security.
 
 ## Features
-- **Password Generator**: Generates random passwords with various length and complexity options.
 - **Password Validator**: Analyzes the strength of a password and checks if it has been compromised using public databases.
-- **Security Analysis**: Provides recommendations for creating secure passwords.
-- **Encryption**: Allows for secure storage of passwords using encryption techniques.
 - **Brute Force Simulation**: Evaluates how long it would take to crack a password.
 - **Keylogger**: Integrates a keylogger generator for educational purposes (ethically framed).
+- **Network Monitoring**: Scan the network to detect potentials targets
 
 ## Prerequisites
 - Python 3.x
 - Tkinter
-- PyCryptodome
 - Requests (for accessing external APIs)
 
 ## Installation
