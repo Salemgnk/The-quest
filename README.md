@@ -58,7 +58,7 @@ If Nmap is not installed, you can follow the installation instructions based on 
 
 ## User Interface
 
-    The application features a graphical user interface (GUI) based on Tkinter. It allows you to choose between the following features:
+The application features a graphical user interface (GUI) based on Tkinter. It allows you to choose between the following features:
 
 - **Password Checking**: Enter a password to check its security and whether it has been compromised.
 - **Network Scan**: Enter a target IP address to perform an Nmap scan for open ports, running services, and potential vulnerabilities.
