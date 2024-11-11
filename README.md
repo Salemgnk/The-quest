@@ -60,23 +60,23 @@ If Nmap is not installed, you can follow the installation instructions based on 
 
     The application features a graphical user interface (GUI) based on Tkinter. It allows you to choose between the following features:
 
-    - Password Checking: Enter a password to check its security and whether it has been compromised.
-    - Network Scan: Enter a target IP address to perform an Nmap scan for open ports, running services, and potential vulnerabilities.
-    - Password Generator: Generate strong random passwords based on custom criteria.
-    - Go Back: You can go back to the main screen at any time.
+- **Password Checking**: Enter a password to check its security and whether it has been compromised.
+- **Network Scan**: Enter a target IP address to perform an Nmap scan for open ports, running services, and potential vulnerabilities.
+- **Password Generator**: Generate strong random passwords based on custom criteria.
+- **Go Back**: You can go back to the main screen at any time.
 
 ## Issues and Limitations
 
 Some Nmap features might not be available or may require elevated privileges (such as full scans or OS detection). If some options are inaccessible or errors occur during the scan, make sure Nmap is properly installed and that you have the necessary permissions.
-    **Root/Admin Privilege:** Certain advanced Nmap features (like OS detection) may require you to run the application as an administrator (on Windows) or with sudo (on Linux/Mac).
-    **Local Network:** Some network scanning features may only work if you are on the same local network or connected via a VPN.
-    **Going Back** : Not implemented yet
+- **Root/Admin Privilege:** Certain advanced Nmap features (like OS detection) may require you to run the application as an administrator (on Windows) or with sudo (on Linux/Mac).
+- **Local Network:** Some network scanning features may only work if you are on the same local network or connected via a VPN.
+- **Going Back** : Not implemented yet
 
 ## Future Features
 
-    Email/SMS Alerts: Notify users via email or SMS if vulnerabilities are detected or if a password has been compromised.
-    Real-Time Port Monitoring: Monitor ports on a target in real-time and get notifications if any changes are detected.
-    Report Export: Allow exporting scan results or password check outcomes to text or PDF files for later review.
+- **Email/SMS Alerts**: Notify users via email or SMS if vulnerabilities are detected or if a password has been compromised.
+- **Real-Time Port Monitoring**: Monitor ports on a target in real-time and get notifications if any changes are detected.
+- **Report Export**: Allow exporting scan results or password check outcomes to text or PDF files for later review.
 
 ## Disclaimer
 
@@ -90,5 +90,5 @@ Contributions are welcome! If you want to improve this project, feel free to sub
 
 For any questions, feel free to contact me at:
 
-    Professional Email: salem.gnandi@epitech.eu
-    Personal Email: gnandisalem@gmail.com
+- **Professional Email**: salem.gnandi@epitech.eu
+- **Personal Email**: gnandisalem@gmail.com
