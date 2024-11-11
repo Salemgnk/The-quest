@@ -5,8 +5,6 @@ This project is a password generator and validator that integrates cybersecurity
 
 ## Features
 - **Password Validator**: Analyzes the strength of a password and checks if it has been compromised using public databases.
-- **Brute Force Simulation**: Evaluates how long it would take to crack a password.
-- **Keylogger**: Integrates a keylogger generator for educational purposes (ethically framed).
 - **Network Monitoring**: Scan the network to detect potentials targets
 
 ## Prerequisites
@@ -38,4 +36,4 @@ Contributions are welcome! Please submit a pull request to discuss changes.
 
 ## Contact
 For any questions, feel free to contact me at:
-salem.gnandi@epitech.eu
+salem.gnandi@epitech.eu / gnandisalem@gmail.com
