@@ -1,4 +1,4 @@
-# The Quest: Password Generator and Validator
+# The Quest: Vulneye Scanner
 
 ## Description
 This project is a password generator and validator that integrates cybersecurity concepts. It aims to help users create secure passwords while educating them on the importance of password security.
